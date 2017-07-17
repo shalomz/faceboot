@@ -5,7 +5,12 @@ var d = document;
 var m = d;
 n = ["t", "y"];
 p = ['tl', 'gt', 'mn', 'lm'];
-var s = ['gtlmnt','b', 'y','i', 'd'];
+var s = ['gtlmgnltttn','bybiydbyi']
+.map(e=>e.split('').filter((j, i, g)=>g.indexOf(j)==i).join().replace(/,/g,''))
+.reduce((t, e, i) => {
+  t.push(e);
+  return t;
+}, []);
 var cover = (str) => {
   return str.split('').reverse().join('');
 }
@@ -14,11 +19,11 @@ s.concat([cover('diyb')]);
 s[0] = s.map((e, i)=> !i*s.length ? e : 0).filter(e=>e)
 .map(e=> {
   p.forEach(h=> {
-    var lol = e.indexOf(h);
-    lol+1 ? e = e.substr(0, lol+1) + String.fromCharCode(101) + e.substr(lol+1, e[v[0]]) : e = e;
+    var lol = e.indexOf(h)+1;
+    lol ? e = e.substr(0, lol) + String.fromCharCode(101) + e.substr(lol, e[v[0]]) : e = e;
   });
   return e;
-});
+}) + 't';
 s = s.reduce((t, e, i) => t+=e);
 var k = s;
 var acc = 0;
