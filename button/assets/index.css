@@ -1,4 +1,5 @@
 html {
+  background: #e6e6e6; /* graceful fallback */
   background: no-repeat linear-gradient(to left top, #a8a8a8, #e6e6e6);
 }
 
@@ -21,7 +22,11 @@ body {
   color: black;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  
+  /* make text not selectable */
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  cursor: default; /* make cursor not change over text */
 }
 button {
   font-size: 20pt;
@@ -31,6 +36,7 @@ button {
   padding: .5em;
   background: #828282;
   color: #39CB08;
+  outline: none !important; /* remove blue border around button */
 }
 
 button:hover {
