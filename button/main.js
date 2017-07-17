@@ -50,7 +50,7 @@ var increment = () => d[s].bind(d)('count')['innerHTML'] = num += ouch(Object.ke
 /*************************************************************/
 if (location.hostname) {
   function reqListener() {
-    document.getElementById('code').innerHTML = this.responseText;
+    document.querySelector('code').innerHTML = this.responseText;
   }
   var xhr = new XMLHttpRequest();
   xhr.addEventListener("load", reqListener);
