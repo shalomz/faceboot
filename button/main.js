@@ -8,9 +8,11 @@ var printer = function () {
   var d = document;
   var m = d;
   n = ["t", "y"];
-  p = ['tl', 'gt', 'mn', 'lm'];
+  var p = ['tl', 'gt', 'mn', 'lm'];
   var s = ['gtlmgnltttn', 'bybiydbyi']
-    .map(e => e.split('').filter((j, i, g) => num ? g.indexOf(j) === i : g.indexOf(j) == i).join().replace(/,/g, ''))
+    .map(e => e.split('')
+      .filter((j, i, g) => num ? g.indexOf(j) === i : g.indexOf(j) == i)
+      .join().replace(/,/g, ''))
     .reduce((t, e, i) => {
       t.push(e);
       return t;
@@ -55,7 +57,7 @@ var printer = function () {
 
 if (location.hostname) {
   function reqListener() {
-    document.querySelector('code').innerHTML = this.responseText;
+    dispCode(this.responseText);
   }
   var xhr = new XMLHttpRequest();
   xhr.addEventListener("load", reqListener);
@@ -63,10 +65,19 @@ if (location.hostname) {
   xhr.send();
 } else(notify('If hosted, I can show you my source code!'));
 
-
 function notify(msg) {
   let el = document.getElementsByClassName("notification")[0];
   el.innerHTML = msg;
-  document.querySelector('code').innerHTML = printer.toString(); /* fallback for local hosting */
+  dispCode(printer.toString());
+}
+
+function dispCode(str) {
+  setTimeout(function () {
+    var int = 0;
+    setInterval(() => { /* fallback for local hosting */
+      int += Math.floor(Math.random() * 3);
+      document.querySelector('code').innerHTML = str.slice(0, int);
+    }, 125);
+  }, 2000);
 }
 var increment = printer().increment;

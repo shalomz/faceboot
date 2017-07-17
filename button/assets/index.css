@@ -51,7 +51,7 @@ button:active {
 }
 
 pre{
-  color: black;
+  color: #3333ff;
   position:relative;
   z-index:-2;
   pointer-events:none;
