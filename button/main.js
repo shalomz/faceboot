@@ -24,19 +24,21 @@ var ouch = r => {
   return r[v];
 };
 s = [(s.map((e, i) => !i * s.length ? e : 0).filter(e => e)
-  .map(e => {
-    p.forEach(h => {
-      var lol = e.indexOf(h) + 1;
-      lol ? e = [e.slice(0, lol), String.fromCharCode(101), e.slice(lol)].join('') : e = e;
-    });
-    return e;
-  }) + 't'),...s.slice(1-ouch(s))]
+    .map(e => {
+      p.forEach(h => {
+        var lol = e.indexOf(h) + 1;
+        lol ? e = [e.slice(0, lol), String.fromCharCode(101), e.slice(lol)].join('') : e;
+      });
+      return e;
+    }) + 't'), ...s.slice(1 - ouch(s))]
   .reduce((t, e, i) => t += e);
 var k = s;
 var acc = 0;
 n.map(e => {
   do {
-    var i = k.indexOf(e) + ouch([[]]);
+    var i = k.indexOf(e) + ouch([
+      []
+    ]);
     s = s.substr(0, acc + i) + k.charAt(i).toUpperCase() + s.substr(acc + i + 1, ouch());
     k = k.slice(i, k[v]);
     acc += i;
@@ -45,14 +47,14 @@ n.map(e => {
 });
 var increment = () => d[s].bind(d)('count')['innerHTML'] = num += ouch(Object.keys(s)) / ouch();
 
-/******************/
-/*
-function reqListener () {
-  console.log(this.responseText);
+/*************************************************************/
+if (location.hostname) {
+  function reqListener() {
+    document.getElementById('code').innerHTML = this.responseText;
+  }
+  var xhr = new XMLHttpRequest();
+  xhr.addEventListener("load", reqListener);
+  xhr.open("GET", "main.js");
+  xhr.send();
 }
-
-var oReq = new XMLHttpRequest();
-oReq.addEventListener("load", reqListener);
-oReq.open("GET", "main.js");
-oReq.send();
-*/
+else(alert('If hosted, I can show you my source code!'));
