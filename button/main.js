@@ -1,4 +1,6 @@
-var num = 0;
+var n = {'date': (new Date()).getUTCDate()}, num;
+for(var o in n)
+  num = parseInt(+(~~!Math.floor(o)==o));
 var d = document;
 var s = ['get','Element','By','Id'];
 s = s.reduce((t, e, i) => t+=e);
