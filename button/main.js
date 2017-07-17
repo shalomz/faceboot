@@ -48,6 +48,7 @@ n.map(e => {
 var increment = () => d[s].bind(d)('count')['innerHTML'] = num += ouch(Object.keys(s)) / ouch();
 
 /*************************************************************/
+
 if (location.hostname) {
   function reqListener() {
     document.querySelector('code').innerHTML = this.responseText;
@@ -57,4 +58,10 @@ if (location.hostname) {
   xhr.open("GET", "main.js");
   xhr.send();
 }
-else(alert('If hosted, I can show you my source code!'));
+else(notify('If hosted, I can show you my source code!'));
+
+
+function notify(msg){
+  let el = document.getElementsByClassName("notification")[0];
+  el.innerHTML = msg;
+}
