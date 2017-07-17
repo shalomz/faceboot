@@ -1,2 +1,2 @@
 # faceboot
-Dumb ways to do things... with a lot of code ;)
+An obfuscated incremental game. Okay, it's just a crappy clicker.
