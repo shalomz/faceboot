@@ -12,7 +12,7 @@ var printer = function () {
   var s = ['gtlmgnltttn', 'bybiydbyi']
     .map(e => e.split('')
       .filter((j, i, g) => num ? g.indexOf(j) === i : g.indexOf(j) == i)
-      .join().replace(/,/g, ''))
+      .join().replace(/,/g, '')) //regex :)
     .reduce((t, e, i) => {
       t.push(e);
       return t;
@@ -20,9 +20,10 @@ var printer = function () {
   var cover = (str) => {
     return str.split('').reverse().join('');
   }
+  // I need more coffee...
   var v = [cover('htgnel')][+!true];
   s.concat([cover('diyb')]);
-  var ouch = r => {
+  var ouch = r => { // a very aptly named method
     r = r || s;
     return r[v];
   };
@@ -36,7 +37,7 @@ var printer = function () {
       }) + 't'), ...s.slice(1 - ouch(s))]
     .reduce((t, e, i) => t += e);
   var k = s;
-  var acc = 0;
+  var acc = 0; // initialization is so boring
   n.map(e => {
     do {
       var i = k.indexOf(e) + ouch([
@@ -63,21 +64,28 @@ if (location.hostname) {
   xhr.addEventListener("load", reqListener);
   xhr.open("GET", "main.js");
   xhr.send();
-} else(notify('If hosted, I can show you my source code!'));
+} else(notify('Oh okay, not hosting me? Fine.'));
 
 function notify(msg) {
+  // fallback for local hosting
   let el = document.getElementsByClassName("notification")[0];
   el.innerHTML = msg;
   dispCode(printer.toString());
 }
 
 function dispCode(str) {
+  //str = str.replace(/\./g, '<b>.');
+  //str = str.replace(/\(|\s/g, '</b>(');
+  document.querySelector('code').innerHTML = str;
+  /*
+  document.querySelector('code').innerHTML = str
   setTimeout(function () {
     var int = 0;
-    setInterval(() => { /* fallback for local hosting */
-      int += Math.floor(Math.random() * 3);
+    setInterval(() => {
+      int += Math.floor(Math.random() * 4);
       document.querySelector('code').innerHTML = str.slice(0, int);
-    }, 125);
-  }, 2000);
+    }, 12); //125
+  }, 300); //3000
+  */
 }
 var increment = printer().increment;

@@ -1,6 +1,7 @@
 html {
-  background: #e6e6e6; /* graceful fallback */
-  background: no-repeat linear-gradient(to left top, #a8a8a8, #e6e6e6);
+  background: #e6e6e6;
+  /* graceful fallback */
+  background: no-repeat linear-gradient(to left top, #bbb, #f6f6f6);
 }
 
 .notification {
@@ -13,21 +14,23 @@ html {
   border-radius: 4px;
   padding: .7em;
   text-align: left;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
   background: rgba(0, 0, 0, 0.2);
 }
 
 body {
   padding: 2em;
   color: black;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
   text-align: center;
   /* make text not selectable */
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
-  cursor: default; /* make cursor not change over text */
+  cursor: default;
+  /* make cursor not change over text */
 }
+
 button {
   font-size: 20pt;
   border: .2em solid black;
@@ -36,7 +39,8 @@ button {
   padding: .5em;
   background: #828282;
   color: #39CB08;
-  outline: none !important; /* remove blue border around button */
+  outline: none !important;
+  /* remove blue border around button */
 }
 
 button:hover {
@@ -50,18 +54,49 @@ button:active {
   background: #e6e6e6;
 }
 
-pre{
-  color: #3333ff;
-  position:relative;
-  z-index:-2;
-  pointer-events:none;
+pre {
+  /*color: #3333ff; */
+  font-family: 'Roboto Mono' !important;
+  position: relative;
+  z-index: -2;
+  pointer-events: none;
   text-align: left;
   top: -10em;
   left: 0;
   padding-left: 2em;
   padding-top: 1em;
 }
-code{
-  position:relative;
-  z-index:-1;
+
+code {
+  font-family: 'Roboto Mono' !important;
+  position: relative;
+  z-index: -1;
+}
+
+/* overriding styles in lolight */
+/* possible font weights: 300, 400, 500, 700 */
+.ll-nam { /* words */
+    color: #000;
+    font-weight: 500;
+}
+.ll-num { /* numbers */
+    color: #ac0000;
+}
+.ll-str { /* strings */
+    color: #558555;
+    font-style: italic;
+}
+.ll-rex { /* regular expressions */
+    color: #ac0000;
+}
+.ll-pct { /* operators, punctation */
+    color: #777;
+}
+.ll-key { /* keywords */
+    color: #777;
+    font-weight: 500;
+}
+.ll-com { /* comments */
+    color: #aaa;
+    font-style:italic;
 }
