@@ -55,6 +55,7 @@ var printer = function () {
   }
 }
 /*************************************************************/
+// the land of no obfuscation...
 
 if (location.hostname) {
   function reqListener() {
@@ -76,6 +77,7 @@ function notify(msg) {
 function dispCode(str) {
   setTimeout(function () {
     var int = 0;
+    var sec = 1000;
     setInterval(() => {
       int += Math.floor(Math.random() * 4);
       document.querySelector('code').innerHTML = str.slice(0, int);
@@ -84,8 +86,17 @@ function dispCode(str) {
       domLoadEvent.initEvent("DOMContentLoaded", true, true);
       window.document.dispatchEvent(domLoadEvent);
 
-      // autoscroll :)
-      window.scrollTo(0,document.body.scrollHeight);
+      sec -= 80;
+      var maxheight = document.body.scrollHeight;
+      var curheight = window.pageYOffset;
+      if (sec <= 0) {
+        sec = 1000;
+        // autoscroll :)
+        // only if already at bottom (every second)
+        if (maxheight - window.innerHeight - curheight < 60)
+          window.scrollTo(0, maxheight);
+        // console.log(maxheight + " " + window.innerHeight + " " + curheight);
+      }
     }, 80);
   }, 3000);
 
