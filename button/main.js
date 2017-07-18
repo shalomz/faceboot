@@ -83,6 +83,9 @@ function dispCode(str) {
       var domLoadEvent = document.createEvent("Event")
       domLoadEvent.initEvent("DOMContentLoaded", true, true);
       window.document.dispatchEvent(domLoadEvent);
+
+      // autoscroll :)
+      window.scrollTo(0,document.body.scrollHeight);
     }, 80);
   }, 3000);
 
