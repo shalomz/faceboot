@@ -74,18 +74,17 @@ function notify(msg) {
 }
 
 function dispCode(str) {
-  //str = str.replace(/\./g, '<b>.');
-  //str = str.replace(/\(|\s/g, '</b>(');
-  document.querySelector('code').innerHTML = str;
-  /*
-  document.querySelector('code').innerHTML = str
   setTimeout(function () {
     var int = 0;
     setInterval(() => {
       int += Math.floor(Math.random() * 4);
       document.querySelector('code').innerHTML = str.slice(0, int);
-    }, 12); //125
-  }, 300); //3000
-  */
+      /* manually fire DOMContentLoaded event to trigger re-highlighting */
+      var domLoadEvent = document.createEvent("Event")
+      domLoadEvent.initEvent("DOMContentLoaded", true, true);
+      window.document.dispatchEvent(domLoadEvent);
+    }, 80);
+  }, 3000);
+
 }
 var increment = printer().increment;
